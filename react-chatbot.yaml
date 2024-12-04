@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-chatbot-deployment
+  labels:
+    app: react-chatbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-chatbot
+  template:
+    metadata:
+      labels:
+        app: react-chatbot
+    spec:
+      containers:
+        - name: react-chatbot
+          image: mjrdockerregistry.azurecr.io/react-chatbot-1:v1
+          ports:
+            - containerPort: 3000
+      imagePullSecrets:
+        - name: acr-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: react-chatbot-service
+spec:
+  selector:
+    app: react-chatbot
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30001

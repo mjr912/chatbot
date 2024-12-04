@@ -1,0 +1,49 @@
+/* src/components/ChatPrompt.css */
+
+.prompt-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.prompt-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.textarea-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.prompt-textarea,
+.response-textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.response-textarea {
+    background-color: #f9f9f9;
+}
+
+.send-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}
